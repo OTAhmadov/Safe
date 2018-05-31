@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<!--
+[HTML MarkUp Structure]
+
+Project:	Yima Admin App
+Version:	1.0.0
+Last change:	12/12/15 [Changelog: (http://www.IssatisLab.com)]
+Implemented By:	IssatisLab (http://www.IssatisLab.com)
+
+
+[Table of contents]
+
+1. Meta Tags
+2. Css References
+3. Sidebar Menu
+4. Sidebar Form
+5. Main Page Content
+    5.1. Page Header
+        5.1.1. BreadCrumb
+        5.1.2. Header Buttons
+    5.2. Page Navbar
+    5.3. Page Body
+6. JavaScript References
+7. Page Related Scripts
+-->
+
+<html lang="en">
+
+<!-- Mirrored from yima-v1.0.1.s3-website-us-east-1.amazonaws.com/html/DatatablesCrud.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2016 17:12:21 GMT -->
+<head>
+    <!--
+    [1. Meta Tags]
+    -->
+    <meta charset="utf-8" />
+    <title>SAFE Security App</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="" type="image/x-icon">  <!--Type icon url here-->
+    <!--
+    [2. Css References]
+    -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" id="link-bootstrap" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/app.min.css" type="text/css" id="link-app" />
+    <link rel="stylesheet" href="assets/css/demo.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css" type="text/css" />
+    <link rel="stylesheet" href="assets/plugins/jquery-file-input/file-input.css">
+    <link rel="stylesheet" href="assets/css/file-input.css">
+
+    <link rel="stylesheet" href="assets/css/page-loading.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
+
+    
+</head>
+<body>
+
+    <div id="main-div" class="hidden animated">
+        <!--
+        [3. Sidebar Menu]
+        -->
+        <div class="sidebar menu">
+            <div class="sidebar-header">
+                <div class="header-brand">
+                    <!--Place for Logo-->
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class="active open">
+                       <!-- <a>
+                            <i class="pe-7s-keypad"></i>
+                            <span>Modules</span>
+                        </a>-->
+                        <div class="brand-slogan">
+                            <div class="slogan-title">SAFE Security App</div>
+                        </div>
+                        <ul class="module">
+                            <li class="active">
+                                <a href='#' onclick="return false">
+                                    <i class="pe-7s-ticket"></i>
+                                    <span>Module №1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href=Module2.html>
+                                    <i class="pe-7s-pin"></i>
+                                    <span>Module №2</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--
+        [4. Sidebar Form]
+        -->
+        <div class="sidebar form collapsed">
+        </div>
+        <!--
+        [5. Main Page Content]
+        -->
+        <div class="main-content">
+            <!--
+            [5.1. Page Header]
+            -->
+            <div class="content-main-header">
+                <div class="content-upper-header">
+                    <img src="assets/img/index.png" alt="default-img" class="main-img">
+                    <div class="user-info animated">
+                        <div class="big-img">
+                            <img src="assets/img/index.png" alt="">
+                        </div>
+                        <div class="data">
+                            <ul>
+                                <li>Bobby Washington</li>
+                                <li>Student/Bachelor ●●●</li>
+                                <li>Graphic design</li>
+                            </ul>
+                        </div>
+                        <div class="stats">
+                            <ul>
+                                <li><a href="#">Messages</a> <span>255</span></li>
+                                <li><a href="#">Lessons notifications</a> <span>109</span></li>
+                                <li><a href="#">My extras</a> <span>10</span></li>
+                            </ul>
+                        </div>
+                        <div class="buttons">
+                            <ul>
+                                <li><a href="#">Cancel</a></li>
+                                <li><a href="#">My page</a></li>
+                            </ul>
+                        </div>
+                        <div class="cancel">✖</div>
+                    </div>
+                </div>
+                <div class="content-header">
+                    <!--
+                    [5.1.1. BreadCrumb]
+                    -->
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-keypad"></i>
+                                <span>Modules</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <i class="pe-7s-pen"></i>
+                            <span>First module</span>
+                        </li>
+                    </ul>
+                    <!--
+                    [5.1.2. Header Buttons]
+                    -->
+                    <ul class="header-actions">
+                        <li id="action-menu-collapse">
+                            <a>
+                                <i class="pe-7s-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--
+            [5.3. Page Body]
+            -->
+            <div class="content-body">
+                <!--<div class="row row-buttons">
+                    <div class="col-lg-12">
+                        <button type="button" id="second-registration" class="btn btn-primary">
+                            Second Registration
+                        </button>
+                        <button type="button" id="registration" class="btn btn-success" data-toggle="modal" data-target="#gridSystemModal">
+                            Registration
+                        </button>
+                    </div>
+                </div>-->
+                <div style="display: none; padding-right: 17px;" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="gridSystemModal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header header-primary">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">Please provide information about yourself</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="panel panel-white">
+
+                                        <div class="panel-body">
+                                            <form novalidate="novalidate" id="signupForm" method="get">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="firstname">Firstname</label>
+                                                    <input class="form-control" id="firstname" name="firstname" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="lastname">Lastname</label>
+                                                    <input class="form-control" id="lastname" name="lastname" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="username">Username</label>
+                                                    <input class="form-control" id="username" name="username" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="password">Password</label>
+                                                    <input class="form-control" id="password" name="password" type="password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="confirm_password">Confirm password</label>
+                                                    <input class="form-control" id="confirm_password" name="confirm_password" type="password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="email">Email</label>
+                                                    <input class="form-control" id="email" name="email" type="email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input id="agree" name="agree" type="checkbox">
+                                                            <span class="text">Please agree to our policy</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary user-bg-color">Submit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary user-bg-color">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <div class="row row-table">
+                    <div class="col-lg-12">
+                        <div class="panel panel-white">
+                            <div class="panel-body">
+                                <div class="col-sm-6">
+                                    <input type="search" class="table-search" placeholder="Search for something">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="buttons_div" class="btn-group dropdown-func">
+                                        <div class="reg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        </div>
+                                        <ul class="dropdown-menu plus">
+                                            <li><a id="registration" href="#" data-toggle="modal" data-target="#gridSystemModal">Registration</a></li>
+                                            <li><a id="second-registration" href="#">Second Registration</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <table id="search-textbox-table" class="table table-celled table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Age</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>Edinburgh</td>
+                                        <td>61</td>
+                                        <td>2011/04/25</td>
+                                        <td>$320,800
+                                            <div class="dropdown-func op-cont">
+                                            <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="glyphicon glyphicon-menu-down"></span>
+                                            </div>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Operation 1</a></li>
+                                                <li><a href="#">Operation 2</a></li>
+                                            </ul>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>63</td>
+                                        <td>2011/07/25</td>
+                                        <td>$170,750
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>Junior Technical Author</td>
+                                        <td>San Francisco</td>
+                                        <td>66</td>
+                                        <td>2009/01/12</td>
+                                        <td>$86,000
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>Senior Javascript Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>22</td>
+                                        <td>2012/03/29</td>
+                                        <td>$433,060
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airi Satou</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>33</td>
+                                        <td>2008/11/28</td>
+                                        <td>$162,700
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brielle Williamson</td>
+                                        <td>Integration Specialist</td>
+                                        <td>New York</td>
+                                        <td>61</td>
+                                        <td>2012/12/02</td>
+                                        <td>$372,000
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Herrod Chandler</td>
+                                        <td>Sales Assistant</td>
+                                        <td>San Francisco</td>
+                                        <td>59</td>
+                                        <td>2012/08/06</td>
+                                        <td>$137,500
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rhona Davidson</td>
+                                        <td>Integration Specialist</td>
+                                        <td>Tokyo</td>
+                                        <td>55</td>
+                                        <td>2010/10/14</td>
+                                        <td>$327,900
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colleen Hurst</td>
+                                        <td>Javascript Developer</td>
+                                        <td>San Francisco</td>
+                                        <td>39</td>
+                                        <td>2009/09/15</td>
+                                        <td>$205,500
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sonya Frost</td>
+                                        <td>Software Engineer</td>
+                                        <td>Edinburgh</td>
+                                        <td>23</td>
+                                        <td>2008/12/13</td>
+                                        <td>$103,600
+                                            <div class="dropdown-func op-cont">
+                                                <div class="operations dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="glyphicon glyphicon-menu-down"></span>
+                                                </div>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Operation 1</a></li>
+                                                    <li><a href="#">Operation 2</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   <!-- <tr>
+                                        <td>Jena Gaines</td>
+                                        <td>Office Manager</td>
+                                        <td>London</td>
+                                        <td>30</td>
+                                        <td>2008/12/19</td>
+                                        <td>$90,560</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quinn Flynn</td>
+                                        <td>Support Lead</td>
+                                        <td>Edinburgh</td>
+                                        <td>22</td>
+                                        <td>2013/03/03</td>
+                                        <td>$342,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Charde Marshall</td>
+                                        <td>Regional Director</td>
+                                        <td>San Francisco</td>
+                                        <td>36</td>
+                                        <td>2008/10/16</td>
+                                        <td>$470,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Haley Kennedy</td>
+                                        <td>Senior Marketing Designer</td>
+                                        <td>London</td>
+                                        <td>43</td>
+                                        <td>2012/12/18</td>
+                                        <td>$313,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tatyana Fitzpatrick</td>
+                                        <td>Regional Director</td>
+                                        <td>London</td>
+                                        <td>19</td>
+                                        <td>2010/03/17</td>
+                                        <td>$385,750</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michael Silva</td>
+                                        <td>Marketing Designer</td>
+                                        <td>London</td>
+                                        <td>66</td>
+                                        <td>2012/11/27</td>
+                                        <td>$198,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Paul Byrd</td>
+                                        <td>Chief Financial Officer (CFO)</td>
+                                        <td>New York</td>
+                                        <td>64</td>
+                                        <td>2010/06/09</td>
+                                        <td>$725,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gloria Little</td>
+                                        <td>Systems Administrator</td>
+                                        <td>New York</td>
+                                        <td>59</td>
+                                        <td>2009/04/10</td>
+                                        <td>$237,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bradley Greer</td>
+                                        <td>Software Engineer</td>
+                                        <td>London</td>
+                                        <td>41</td>
+                                        <td>2012/10/13</td>
+                                        <td>$132,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dai Rios</td>
+                                        <td>Personnel Lead</td>
+                                        <td>Edinburgh</td>
+                                        <td>35</td>
+                                        <td>2012/09/26</td>
+                                        <td>$217,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenette Caldwell</td>
+                                        <td>Development Lead</td>
+                                        <td>New York</td>
+                                        <td>30</td>
+                                        <td>2011/09/03</td>
+                                        <td>$345,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yuri Berry</td>
+                                        <td>Chief Marketing Officer (CMO)</td>
+                                        <td>New York</td>
+                                        <td>40</td>
+                                        <td>2009/06/25</td>
+                                        <td>$675,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Caesar Vance</td>
+                                        <td>Pre-Sales Support</td>
+                                        <td>New York</td>
+                                        <td>21</td>
+                                        <td>2011/12/12</td>
+                                        <td>$106,450</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doris Wilder</td>
+                                        <td>Sales Assistant</td>
+                                        <td>Sidney</td>
+                                        <td>23</td>
+                                        <td>2010/09/20</td>
+                                        <td>$85,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Angelica Ramos</td>
+                                        <td>Chief Executive Officer (CEO)</td>
+                                        <td>London</td>
+                                        <td>47</td>
+                                        <td>2009/10/09</td>
+                                        <td>$1,200,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gavin Joyce</td>
+                                        <td>Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>42</td>
+                                        <td>2010/12/22</td>
+                                        <td>$92,575</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jennifer Chang</td>
+                                        <td>Regional Director</td>
+                                        <td>Singapore</td>
+                                        <td>28</td>
+                                        <td>2010/11/14</td>
+                                        <td>$357,650</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brenden Wagner</td>
+                                        <td>Software Engineer</td>
+                                        <td>San Francisco</td>
+                                        <td>28</td>
+                                        <td>2011/06/07</td>
+                                        <td>$206,850</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fiona Green</td>
+                                        <td>Chief Operating Officer (COO)</td>
+                                        <td>San Francisco</td>
+                                        <td>48</td>
+                                        <td>2010/03/11</td>
+                                        <td>$850,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shou Itou</td>
+                                        <td>Regional Marketing</td>
+                                        <td>Tokyo</td>
+                                        <td>20</td>
+                                        <td>2011/08/14</td>
+                                        <td>$163,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michelle House</td>
+                                        <td>Integration Specialist</td>
+                                        <td>Sidney</td>
+                                        <td>37</td>
+                                        <td>2011/06/02</td>
+                                        <td>$95,400</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Suki Burks</td>
+                                        <td>Developer</td>
+                                        <td>London</td>
+                                        <td>53</td>
+                                        <td>2009/10/22</td>
+                                        <td>$114,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prescott Bartlett</td>
+                                        <td>Technical Author</td>
+                                        <td>London</td>
+                                        <td>27</td>
+                                        <td>2011/05/07</td>
+                                        <td>$145,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gavin Cortez</td>
+                                        <td>Team Leader</td>
+                                        <td>San Francisco</td>
+                                        <td>22</td>
+                                        <td>2008/10/26</td>
+                                        <td>$235,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Martena Mccray</td>
+                                        <td>Post-Sales support</td>
+                                        <td>Edinburgh</td>
+                                        <td>46</td>
+                                        <td>2011/03/09</td>
+                                        <td>$324,050</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Unity Butler</td>
+                                        <td>Marketing Designer</td>
+                                        <td>San Francisco</td>
+                                        <td>47</td>
+                                        <td>2009/12/09</td>
+                                        <td>$85,675</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Howard Hatfield</td>
+                                        <td>Office Manager</td>
+                                        <td>San Francisco</td>
+                                        <td>51</td>
+                                        <td>2008/12/16</td>
+                                        <td>$164,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hope Fuentes</td>
+                                        <td>Secretary</td>
+                                        <td>San Francisco</td>
+                                        <td>41</td>
+                                        <td>2010/02/12</td>
+                                        <td>$109,850</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vivian Harrell</td>
+                                        <td>Financial Controller</td>
+                                        <td>San Francisco</td>
+                                        <td>62</td>
+                                        <td>2009/02/14</td>
+                                        <td>$452,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Timothy Mooney</td>
+                                        <td>Office Manager</td>
+                                        <td>London</td>
+                                        <td>37</td>
+                                        <td>2008/12/11</td>
+                                        <td>$136,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jackson Bradshaw</td>
+                                        <td>Director</td>
+                                        <td>New York</td>
+                                        <td>65</td>
+                                        <td>2008/09/26</td>
+                                        <td>$645,750</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Olivia Liang</td>
+                                        <td>Support Engineer</td>
+                                        <td>Singapore</td>
+                                        <td>64</td>
+                                        <td>2011/02/03</td>
+                                        <td>$234,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bruno Nash</td>
+                                        <td>Software Engineer</td>
+                                        <td>London</td>
+                                        <td>38</td>
+                                        <td>2011/05/03</td>
+                                        <td>$163,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sakura Yamamoto</td>
+                                        <td>Support Engineer</td>
+                                        <td>Tokyo</td>
+                                        <td>37</td>
+                                        <td>2009/08/19</td>
+                                        <td>$139,575</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thor Walton</td>
+                                        <td>Developer</td>
+                                        <td>New York</td>
+                                        <td>61</td>
+                                        <td>2013/08/11</td>
+                                        <td>$98,540</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Finn Camacho</td>
+                                        <td>Support Engineer</td>
+                                        <td>San Francisco</td>
+                                        <td>47</td>
+                                        <td>2009/07/07</td>
+                                        <td>$87,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Serge Baldwin</td>
+                                        <td>Data Coordinator</td>
+                                        <td>Singapore</td>
+                                        <td>64</td>
+                                        <td>2012/04/09</td>
+                                        <td>$138,575</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zenaida Frank</td>
+                                        <td>Software Engineer</td>
+                                        <td>New York</td>
+                                        <td>63</td>
+                                        <td>2010/01/04</td>
+                                        <td>$125,250</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zorita Serrano</td>
+                                        <td>Software Engineer</td>
+                                        <td>San Francisco</td>
+                                        <td>56</td>
+                                        <td>2012/06/01</td>
+                                        <td>$115,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jennifer Acosta</td>
+                                        <td>Junior Javascript Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>43</td>
+                                        <td>2013/02/01</td>
+                                        <td>$75,650</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cara Stevens</td>
+                                        <td>Sales Assistant</td>
+                                        <td>New York</td>
+                                        <td>46</td>
+                                        <td>2011/12/06</td>
+                                        <td>$145,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hermione Butler</td>
+                                        <td>Regional Director</td>
+                                        <td>London</td>
+                                        <td>47</td>
+                                        <td>2011/03/21</td>
+                                        <td>$356,250</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lael Greer</td>
+                                        <td>Systems Administrator</td>
+                                        <td>London</td>
+                                        <td>21</td>
+                                        <td>2009/02/27</td>
+                                        <td>$103,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Alexander</td>
+                                        <td>Developer</td>
+                                        <td>San Francisco</td>
+                                        <td>30</td>
+                                        <td>2010/07/14</td>
+                                        <td>$86,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shad Decker</td>
+                                        <td>Regional Director</td>
+                                        <td>Edinburgh</td>
+                                        <td>51</td>
+                                        <td>2008/11/13</td>
+                                        <td>$183,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michael Bruce</td>
+                                        <td>Javascript Developer</td>
+                                        <td>Singapore</td>
+                                        <td>29</td>
+                                        <td>2011/06/27</td>
+                                        <td>$183,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Donna Snider</td>
+                                        <td>Customer Support</td>
+                                        <td>New York</td>
+                                        <td>27</td>
+                                        <td>2011/01/25</td>
+                                        <td>$112,000</td>
+                                    </tr>-->
+                                    </tbody>
+                                </table>
+                                <div class="col-sm-12 flex-input">
+                                    <button class="btn loading-margins">Load more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-form hidden">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Registration Form</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="form-heading">
+                                        Picture
+                                    </div>
+
+                                    <div class="form-group flex-input">
+                                        <div data-provides="fileinput" class="fileinput fileinput-new position-parent">
+                                            <div style="width: 200px; height: 150px" class="fileinput-new thumbnail"></div>
+                                            <div style="max-width: 200px; max-height: 150px" class="fileinput-preview fileinput-exists thumbnail"></div>
+                                            <div class="btn-file-container"><label class="btn btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></label>&nbsp;</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-heading">
+                                        User Information
+                                    </div>
+                                    <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="form-control" id="userameInput" placeholder="Username">
+                                                    <i class="glyphicon glyphicon-user"></i>
+                                                </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="prepend-icon">
+                                            <input type="text" class="form-control" id="emailInput" placeholder="Email Address">
+                                            <i class="fa fa-envelope-o circular"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="prepend-icon">
+                                            <input type="text" class="form-control" id="passwordInput" placeholder="Password">
+                                            <i class="fa fa-lock circular"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="prepend-icon">
+                                            <input type="text" class="form-control" id="confirmPasswordInput" placeholder="Confirm Password">
+                                            <i class="fa fa-lock circular"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-heading">
+                                        Personal Information
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="form-control" placeholder="Name">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 cancel-button">
+                                            <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="form-control" placeholder="Family">
+                                                    <i class="fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="form-control" placeholder="Phone">
+                                                    <i class="glyphicon glyphicon-earphone"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 cancel-button">
+                                            <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="form-control" placeholder="Mobile">
+                                                    <i class="glyphicon glyphicon-phone"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="full-width" />
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="datepicker form-control">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 cancel-button">
+                                            <div class="form-group">
+                                                <div class="prepend-icon">
+                                                    <input type="text" class="form-control" placeholder="Birth Place">
+                                                    <i class="fa fa-globe"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                        </div>
+                                        <div class="col-lg-6 cancel-button">
+                                            <button class="btn btn-danger btn-block">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="cssload-global">
+
+        <div id="cssload-top" class="cssload-mask">
+            <div class="cssload-plane"></div>
+        </div>
+        <div id="cssload-middle" class="cssload-mask">
+            <div class="cssload-plane"></div>
+        </div>
+
+        <div id="cssload-bottom" class="cssload-mask">
+            <div class="cssload-plane"></div>
+        </div>
+
+    </div>
+        <!--
+        [6. JavaScript References]
+        -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/modernizr.custom.js"></script>
+        <script src="assets/js/lib/animsition/animsition.min.js"></script>
+       <!-- <script src="assets/js/pages/datatables-search.js"></script>-->
+
+<<<<<<< HEAD
+<!--        <script src="../../assets/js/main.js"></script>-->
+=======
+        <script src="assets/js/main.js"></script>
+>>>>>>> 0ba0ade20c735edadf2947c8382134e2400b4112
+
+        <!--
+        [7. Page Related Scripts]
+        -->
+
+    <script src="assets/js/lib/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/js/lib/datatables/dataTables.tableTools.min.js"></script>
+    <script src="assets/js/lib/datatables/dataTables.bootstrap.min.js"></script>
+
+
+
+
+
+        <script src="assets/js/lib/validation/jquery.validate.min.js"></script>
+        <script src="assets/js/lib/validation/jquery.validate.defaults.js"></script>
+        <script src="assets/js/bootstrap-datepicker.js"></script>
+
+
+        <script src="assets/js/pages/Modal-Dialog.js"></script>
+        <script src="assets/js/file-input.js"></script>
+
+
+        <script src="assets/js/spin.js"></script>
+        <script src="assets/js/pages/Second-registration.js"></script>
+        <script src="assets/js/pages/Additional-functions.js"></script>
+
+        <script src="assets/js/page-loading.js"></script>
+
+
+
+
+</body>
+
+<!-- Mirrored from yima-v1.0.1.s3-website-us-east-1.amazonaws.com/html/DatatablesCrud.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2016 17:12:22 GMT -->
+</html>

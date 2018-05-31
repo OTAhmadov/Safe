@@ -1,0 +1,125 @@
+<div class="container-fluid optional-page animated">
+    <form id="user-group-form">
+        <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h3 data-i18n="user.groups.permissions.form" class="panel-title">Permissions form</h3>
+                    <div class="panel-tools">
+                        <a class="tools-action" href="#" data-toggle="collapse">
+                            <i class="pe-7s-angle-up"></i>
+                        </a>
+                        <a class="tools-action" href="#" data-toggle="dispose">
+                            <i class="pe-7s-close"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label data-i18n = "user.group.name" class="control-label" for="userGroupNameAz">AZ</label>
+                                <input  class="form-control user-group-name" type="text" >
+                                <div class="hr-space"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <label  class="control-label" >Üst qrup</label>
+                                <div class="prepend-icon">
+                                    <select name="parentId"  class="form-control" id="parentRole" >
+                                    </select>
+                                </div>
+                            </div>
+<!--                            <div class="col-md-12">
+                                <label class="control-label" for="userGroupNameEn">EN</label>
+                                <input  class="form-control user-group-name-en" type="text" name="roleNameEn">
+                                <div class="hr-space"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label" for="userGroupNameRu">RU</label>
+                                <input  class="form-control user-group-name-ru" type="text" name="roleNameRu">
+                                <div class="hr-space"></div>
+                            </div>-->
+                        </div>
+                        <div class="hr-space"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h3 data-i18n="opreation.view.table.operations" class="panel-title">Actions table</h3>
+                    <div class="panel-tools">
+                        <a class="tools-action" href="#" data-toggle="collapse">
+                            <i class="pe-7s-angle-up"></i>
+                        </a>
+                        <a class="tools-action" href="#" data-toggle="dispose">
+                            <i class="pe-7s-close"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="user-group-form">
+                        <table id="operation-table" class="table table-celled">
+                            <thead>
+                            <tr>
+                                <th data-i18n="opreation.view.table.applications">Applications</th>
+                                <th data-i18n="opreation.view.table.operations">Operations</th>
+                                <th data-i18n="opreation.view.table.enabled">Enabled</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-2">
+            <button data-i18n="buttons.ok" id="btn-user-group-ok" type="button" class="btn btn-success btn-block">OK</button>
+        </div>
+        <div class="col-lg-4 cancel-button">
+            <button data-i18n="buttons.back" id="btn-user-group-cancel" type="button" class="btn btn-danger btn-block">Back</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){ 
+        $('[data-i18n]').each(function() { 
+            var attr = $(this).attr('data-i18n'); 
+             $(this).text(Sec.dictionary[Sec.lang][attr]);
+            $(this).attr('placeholder',Sec.dictionary[Sec.lang][attr]); 
+        });
+        var lang;
+        
+        if(Sec.lang == 'az') {
+            lang = 'roleNameAz'; 
+        }
+        else if(Sec.lang == 'en') {
+            lang = 'roleNameEn'; 
+        }
+        else if(Sec.lang == 'ru') {
+            lang = 'roleNameRu'; 
+        }
+
+        $('.content-body .user-group-name').attr('name', lang);
+        
+        Sec.Proxy.loadRoles(function (roles) {
+            $('.datepicker').datepicker();
+            var html = '';
+            if (roles) {
+                html +='<option value="0">Üst grupu yoxdur</option>';
+                $.each(roles.data, function (i, v) {
+                    html += '<option value="' + v.id + '">' + v.value[Sec.lang] + '</option>';
+                });
+                $('#parentRole').html(html);
+            }
+
+        });
+    });
+</script>

@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<!--
+[HTML MarkUp Structure]
+
+Project:	Yima Admin App
+Version:	1.0.0
+Last change:	12/12/15 [Changelog: (http://www.IssatisLab.com)]
+Implemented By:	IssatisLab (http://www.IssatisLab.com)
+
+
+[Table of contents]
+
+1. Meta Tags
+2. Css References
+3. Sidebar Menu
+4. Sidebar Form
+5. Main Page Content
+    5.1. Page Header
+        5.1.1. BreadCrumb
+        5.1.2. Header Buttons
+    5.2. Page Navbar
+    5.3. Page Body
+6. JavaScript References
+7. Page Related Scripts
+-->
+
+<html lang="en">
+
+<!-- Mirrored from yima-v1.0.1.s3-website-us-east-1.amazonaws.com/html/DatatablesCrud.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2016 17:12:21 GMT -->
+<head>
+    <!--
+    [1. Meta Tags]
+    -->
+    <meta charset="utf-8" />
+    <title>SAFE Security App</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="" type="image/x-icon">  <!--Type icon url here-->
+    <!--
+    [2. Css References]
+    -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" id="link-bootstrap" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/app.min.css" type="text/css" id="link-app" />
+    <link rel="stylesheet" href="assets/css/demo.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css" type="text/css" />
+
+    <link rel="stylesheet" href="assets/css/page-loading.css">
+    
+</head>
+<body>
+    <div id="main-div" class="hidden animated">
+        <!--
+        [3. Sidebar Menu]
+        -->
+        <div class="sidebar menu">
+            <div class="sidebar-header">
+                <div class="header-brand">
+                    <!--Place for logo-->
+                </div>
+                <div class="brand-slogan">
+                    <div class="slogan-title">SAFE Security App</div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class="active open">
+                        <!--<a>
+                            <i class="pe-7s-keypad"></i>
+                            <span>Modules</span>
+                        </a>-->
+                        <ul class="module">
+                            <li>
+                                <a href=Module1.html>
+                                    <i class="pe-7s-ticket"></i>
+                                    <span>Module №1</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href=# onclick="return false">
+                                    <i class="pe-7s-pin"></i>
+                                    <span>Module №2</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--
+        [4. Sidebar Form]
+        -->
+        <div class="sidebar form collapsed">
+        </div>
+        <!--
+        [5. Main Page Content]
+        -->
+        <div class="main-content">
+            <!--
+            [5.1. Page Header]
+            -->
+            <div class="content-main-header">
+                <div class="content-upper-header">
+                    <img src="assets/img/index.png" alt="default-img" class="main-img">
+                    <div class="user-info animated">
+                        <div class="big-img">
+                            <img src="assets/img/index.png" alt="">
+                        </div>
+                        <div class="data">
+                            <ul>
+                                <li>Bobby Washington</li>
+                                <li>Student/Bachelor ●●●</li>
+                                <li>Graphic design</li>
+                            </ul>
+                        </div>
+                        <div class="stats">
+                            <ul>
+                                <li><a href="#">Messages</a> <span>255</span></li>
+                                <li><a href="#">Lessons notifications</a> <span>109</span></li>
+                                <li><a href="#">My extras</a> <span>10</span></li>
+                            </ul>
+                        </div>
+                        <div class="buttons">
+                            <ul>
+                                <li><a href="#">Cancel</a></li>
+                                <li><a href="#">My page</a></li>
+                            </ul>
+                        </div>
+                        <div class="cancel">✖</div>
+                    </div>
+                </div>
+                <div class="content-header">
+                    <!--
+                    [5.1.1. BreadCrumb]
+                    -->
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pe-7s-keypad"></i>
+                                <span>Modules</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <i class="pe-7s-pen"></i>
+                            <span>Second module</span>
+                        </li>
+                    </ul>
+                    <!--
+                    [5.1.2. Header Buttons]
+                    -->
+                    <ul class="header-actions">
+                        <li id="action-menu-collapse">
+                            <a>
+                                <i class="pe-7s-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--
+            [5.3. Page Body]
+            -->
+            <div class="content-body">
+                <div class="container-fluid main-page animated">
+    <div class="row">
+        <div class="col-lg-12">
+            <button id="actions" class="btn btn-warning" type="button">Actions</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h3 class="panel-title">First Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="first-table table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Companies</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.
+                        </tr>
+                        <tr>
+                            <td>ARDENT LEISURE GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>AUSENCO LIMITED
+                        </tr>
+                        <tr>
+                            <td>ADELAIDE BRIGHTON LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td>ABACUS PROPERTY GROUP</td>
+                        </tr>
+                        <tr>
+                            <td>ADITYA BIRLA MINERALS LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td>ACRUX LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td>ADAMUS RESOURCES LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td>ANGLOGOLD ASHANTI LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td>AGL ENERGY LIMITED</td>
+                        </tr>
+                        <tr>
+                            <td>ATLAS IRON LIMITED</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Second table</h3>
+                    <!--<p style="float: right"> Test</p>-->
+                </div>
+                <div class="panel-body">
+
+                    <table class="second-table table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Price
+                            </th>
+                            <th>Change
+                            </th>
+                            <th>Change %
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>$1.38
+                            </td>
+                            <td>-0.01
+                            </td>
+                            <td>-0.36%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$1.15
+                            </td>
+                            <td>+0.02
+                            </td>
+                            <td>1.32%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$4.00
+                            </td>
+                            <td>-0.04
+                            </td>
+                            <td>-0.99%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$3.00
+                            </td>
+                            <td>+0.06
+                            </td>
+                            <td>2.04%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$1.91
+                            </td>
+                            <td>0.00
+                            </td>
+                            <td>0.00%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$0.77
+                            </td>
+                            <td>+0.02
+                            </td>
+                            <td>2.00%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$3.71
+                            </td>
+                            <td>+0.01
+                            </td>
+                            <td>0.14%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$0.72
+                            </td>
+                            <td>0.00
+                            </td>
+                            <td>0.00%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$7.81
+                            </td>
+                            <td>-0.22
+                            </td>
+                            <td>-2.74%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$13.82
+                            </td>
+                            <td>+0.02
+                            </td>
+                            <td>0.14%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>$3.17
+                            </td>
+                            <td>-0.02
+                            </td>
+                            <td>-0.47%
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                <div class="container-fluid optional-page hidden animated">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="panel panel-white">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Permissions form</h3>
+                                    <div class="panel-tools">
+                                        <a class="tools-action" href="#" data-toggle="collapse">
+                                            <i class="pe-7s-angle-up"></i>
+                                        </a>
+                                        <a class="tools-action" href="#" data-toggle="dispose">
+                                            <i class="pe-7s-close"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <form class="form-horizontal">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input name="status" placeholder="Status" class="form-control" type="email">
+                                                <div class="hr-space"></div>
+                                            </div>
+                                        </div>
+                                        <div class="hr-space"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="panel panel-white">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Actions table</h3>
+                                    <div class="panel-tools">
+                                        <a class="tools-action" href="#" data-toggle="collapse">
+                                            <i class="pe-7s-angle-up"></i>
+                                        </a>
+                                        <a class="tools-action" href="#" data-toggle="dispose">
+                                            <i class="pe-7s-close"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <table id="editable-table" class="table table-celled">
+                                        <thead>
+                                        <tr>
+                                            <th>Applications</th>
+                                            <th>Operations</th>
+                                            <th>Enabled</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr>
+                                            <td>Some app1</td>
+                                            <td>
+                                                Operation1
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input class="switch toggle switch-warning" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Some app2</td>
+                                            <td>
+                                                Operation2
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input class="switch toggle switch-warning" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Some app3</td>
+                                            <td>
+                                                Operation3
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input class="switch toggle switch-warning" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Some app4</td>
+                                            <td>
+                                                Operation4
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input class="switch toggle switch-warning" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Some app5</td>
+                                            <td>
+                                                Operation5
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input class="switch toggle switch-warning" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Some app6</td>
+                                            <td>
+                                                Operation6
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input class="switch toggle switch-warning" type="checkbox">
+                                                    <span class="text"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <button id="ok-button" type="button" class="btn btn-success btn-block">OK</button>
+                        </div>
+                        <div class="col-lg-4 cancel-button">
+                            <button id="cancel-button" type="button" class="btn btn-danger btn-block">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="cssload-global">
+
+        <div id="cssload-top" class="cssload-mask">
+            <div class="cssload-plane"></div>
+        </div>
+        <div id="cssload-middle" class="cssload-mask">
+            <div class="cssload-plane"></div>
+        </div>
+
+        <div id="cssload-bottom" class="cssload-mask">
+            <div class="cssload-plane"></div>
+        </div>
+
+    </div>
+
+
+    <!--
+        [6. JavaScript References]
+        -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="assets/js/lib/animsition/animsition.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!--
+    [7. Page Related Scripts]
+    -->
+
+    <script src="assets/js/lib/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/js/lib/datatables/dataTables.tableTools.min.js"></script>
+    <script src="assets/js/lib/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="assets/js/pages/Additional-functions.js"></script>
+    <script src="assets/js/pages/datatables-crud.js"></script>
+    <script src="assets/js/spin.js"></script>
+    <script src="assets/js/pages/Actions.js"></script>
+
+    <script src="assets/js/page-loading.js"></script>
+
+
+</body>
+
+<!-- Mirrored from yima-v1.0.1.s3-website-us-east-1.amazonaws.com/html/DatatablesCrud.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2016 17:12:22 GMT -->
+</html>
+
+
+

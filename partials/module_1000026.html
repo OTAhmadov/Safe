@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<div style="display: none; padding-right: 17px;" class="modal fade main-modal" role="dialog" aria-labelledby="gridSystemModalLabel" id="editDictionaryModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header header-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 data-i18n="dictionary.name" class="modal-title" id="gridSystemModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="panel panel-white">
+                        <div class="panel-heading">
+                            <h3 data-i18n="parents" class="panel-title">Parents</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <label data-i18n="dictionary.type.name" class="control-label" for="typeName">Dictionary Type</label>
+                                    <select class="form-control dic-type-select">
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label data-i18n="dictionary.name" class="control-label" for="parentName">Dictionaries</label>
+                                    <select class="form-control parent-select">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label data-i18n="dictionary.type.code" class="control-label" for="code">Code</label>
+                                <span class="span-code"></span>
+                                <input class="form-control" id="code"  type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n = "dictionary.value" class="control-label" for="az">Az</label>
+                                <input class="form-control input-dictionary-name" name="az" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-i18n="buttons.close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button data-i18n="buttons.ok" type="button" class="btn btn-primary btn-dictionary">Save changes</button>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="row row-table no-margin">
+    <div class="col-md-4 middle-area-top p-r-0">
+        <div class="panel panel-white" style="min-height: 300px">
+            <div class="panel-heading">
+                <h3 data-i18n="modules" class="panel-title">Modules</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-celled table-hover translation-types">
+                    <thead>
+                        <tr>
+
+                            <th data-i18n="dictionary.type.name">Name AZ</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="space-for-footer">
+                    <div class="col-sm-12 flex-input">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 middle-area-top p-r-0">
+        <div class="panel panel-white">
+            <div class="panel-heading">
+                <h3 data-i18n="dictionary.name" class="panel-title">Dictionary</h3>
+            </div>
+            <div class=" panel-body">
+                <table style="table-layout:fixed;" class="table table-celled table-hover translation-data">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <!--                            <th class="hidden" data-i18n="dictionary.table.id">Parent ID</th>-->
+                            <th > Az</th>
+                            <th > En</th>
+                            <th > Ru</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <colgroup><col style="width:5%" span="1">
+                        <col style="width:25%" span="3">
+                        <col style="width:5%" span="1">
+
+                    </colgroup>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="space-for-footer">
+                    <div class="col-sm-12 flex-input">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function (e) {
+        try {
+            Sec.i18n(Sec.lang);
+            $('#main-div .sub_modules_div').remove();
+            Sec.Proxy.loadSubModules(1000026, function (data) {
+                var html = '';
+                $.each(data.data, function (i, v) {
+                    var type = '';
+                    if (v.id == 1000039) {
+                        type = 'dictionary';
+                    } else if (v.id == 1000040) {
+                        type = 'org';
+                    } else if (v.id == 1000041) {
+                        type = 'org_short_name';
+                    } else if (v.id == 1000042) {
+                        type = 'address';
+                    }
+
+                    html += '<tr data-id = "' + v.id + '" data-type="' + type + '"><td>' + v.name[Sec.lang] + '</td></tr>';
+                });
+                $('.translation-types tbody').html(html);
+            })
+        }
+        catch (err) {
+            console.error(err);
+        }
+
+        $('.translation-types tbody').on('click', 'tr', function (e) {
+            try {
+
+                var group = $(this).attr('data-type');
+
+                Sec.Proxy.getTranslationList(group, function (data) {
+                    var html = '';
+                    var index = 1;
+                    $.each(data, function (i, v) {
+                        var az = v.value.az ? v.value.az : '';
+                        var en = v.value.en ? v.value.en : '';
+                        var ru = v.value.ru ? v.value.ru : '';
+                        html += '<tr  data-id="' + v.id + '">' +
+                                '<td>' + (index++) + '</td>' +
+                                '<td style="white-space:pre-line" data-lang="az" data-type="text">' + az + '</td>' +
+                                '<td style="white-space:pre-line" data-lang="en" data-type="text">' + en + '</td>' +
+                                '<td style="white-space:pre-line" data-lang="ru" data-type="text">' + ru + '</td>' +
+                                '<td>' +
+                                '<button class="btn btn-xs btn-success hidden  padding-1 btn-translation-submit" data-id = "' + v.id + '" data-type = "' + group + '">' +
+                                '<i class="glyphicon glyphicon-ok"></i>' +
+                                '</button>' +
+                                '</td>' +
+                                '</tr>';
+                    });
+                    $('.translation-data tbody').html(html);
+                });
+            }
+            catch (err) {
+                console.error(err);
+            }
+        });
+
+        $('.translation-data tbody').on('click', 'td[data-type="text"]', function (e) {
+            try {
+                var $obj = $(this);
+                var data = $obj.text();
+                $obj.html('<input type="text" class="translation-data-input"/>').find('input').val(data);
+                $obj.parents('tr').find('.hidden').removeClass('hidden');
+                $obj.attr('data-type', 'input');
+            }
+            catch (err) {
+                console.error(err);
+            }
+        });
+
+        $('.translation-data tbody').on('click', '.btn-translation-submit', function (e) {
+            try {
+
+                var $obj = $(this);
+                var id = $obj.attr('data-id');
+                var group = $obj.attr('data-type');
+
+                var nameAz = $obj.parents('tr').find('td[data-lang="az"] input').val() ? $obj.parents('tr').find('td[data-lang="az"] input').val() : $obj.parents('tr').find('td[data-lang="az"]').text();
+                var nameEn = $obj.parents('tr').find('td[data-lang="en"] input').val() ? $obj.parents('tr').find('td[data-lang="en"] input').val() : $obj.parents('tr').find('td[data-lang="en"]').text();
+                var nameRu = $obj.parents('tr').find('td[data-lang="ru"] input').val() ? $obj.parents('tr').find('td[data-lang="ru"] input').val() : $obj.parents('tr').find('td[data-lang="ru"]').text();
+
+                var name = {};
+                name.id = id;
+                name.nameAz = nameAz;
+                name.nameEn = nameEn;
+                name.nameRu = nameRu;
+                name.group = group;
+
+                Sec.Proxy.editTranslationName(name, function (data) {
+                    if (data) {
+                        if (data.code == Sec.statusCodes.OK) {
+                            $.notify("Əməliyyat uğurla yerinə yetirildi!", {
+                                type: 'success'
+                            });
+                            $obj.addClass('hidden');
+                            if ($obj.parents('tr').find('td[data-lang="az"] input')) {
+                                $obj.parents('tr').find('td[data-lang="az"] input').remove()
+                                $obj.parents('tr').find('td[data-lang="az"]').attr('data-type', 'text')
+                                $obj.parents('tr').find('td[data-lang="az"]').text(nameAz)
+                            }
+                            if ($obj.parents('tr').find('td[data-lang="en"] input')) {
+                                $obj.parents('tr').find('td[data-lang="en"] input').remove()
+                                $obj.parents('tr').find('td[data-lang="en"]').attr('data-type', 'text')
+                                $obj.parents('tr').find('td[data-lang="en"]').text(nameEn)
+                            }
+                            if ($obj.parents('tr').find('td[data-lang="ru"] input')) {
+                                $obj.parents('tr').find('td[data-lang="ru"] input').remove()
+                                $obj.parents('tr').find('td[data-lang="ru"]').attr('data-type', 'text')
+                                $obj.parents('tr').find('td[data-lang="ru"]').text(nameRu)
+                            }
+                        }
+                    }
+                });
+            }
+            catch (err) {
+                console.error(err);
+            }
+        });
+    });
+</script>
+
+
+
+

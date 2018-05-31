@@ -1,0 +1,296 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Oct 13, 2016, 9:43:59 PM
+    Author     : RUHANI ALIYEV
+*/
+
+.row-selected {
+    background-color: #f5f5f5;
+}
+.span-code-success {
+    color: green; 
+    font-size: 20px;
+}
+.span-code-warning {
+    color: red; 
+    font-size: 20px;
+}
+.error-border {
+border: 1px solid red;
+}
+
+.success-border {
+border: 1px solid green;
+}
+
+.translation-types tbody tr {
+    cursor: pointer;
+}
+
+.padding-1 {
+    padding: 1px;
+}
+
+.translation-data-input {
+    padding: 5px;
+    width: 90%;
+}
+
+.user-info-img {
+    max-height: 170px;
+    width: 100%;
+}
+
+.user-info-image-block {
+    border: 1px solid lightgray;
+    height: 180px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+/*.user-info-logout {
+    border-top: 1px solid lightgray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 90%;
+}
+
+.user-info-block {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.user-info-block {
+    margin-left: 78px;
+}*/
+
+.user-info-block {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.profile-data {
+    margin-left: 42px;
+}
+
+.userinfo-logout-block > div {
+    padding: 5px;
+}
+
+.userinfo-logout-block .btn {
+    width: 100%;
+}
+
+.userinfo-logout-block {
+    border-top: 1px solid lightgray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+    padding: 5px;
+    width: 90%;
+}
+
+.content-upper-header .user-info {
+    height: 172px;
+}
+
+.no-border-radius {
+    border-radius: 0px !important;
+}
+
+.notify .message {
+    font-size: 16px;
+}
+
+div.notify {
+    border-radius: 0px;
+    padding: 8px 15px;
+    border: 1px solid gray;
+}
+
+.top-panel {
+    min-height: 49px;
+}
+
+.flex-img {
+    display: flex;
+    justify-content: center;
+}
+
+.btn.btn-default.tree-modal.btn-block {
+    margin-top: 9px;
+    width: 98%;
+}
+
+.filter-log-date.prepend-icon {
+    margin-top: 16px;
+    width: 360px;
+}
+
+.content-filters .tree-modal-container {
+    display: inline;
+}
+
+
+.sub_modules_h3 {
+    border-bottom: 1px solid rgba(125, 125, 125, 0.5);
+    color: #eaeaea;
+    display: inline-block;
+    font-family: "Calibri";
+    font-size: 18px;
+    margin-bottom: 12px !important;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 200px;
+    margin-left: 15px;
+}
+.sub_modules {
+    font-size: 10px;
+}
+
+.icon-report {
+   background-image: url("../img/report.png");
+}
+
+.icon-ims {
+   background-image: url("../img/ims.png");
+}
+
+.icon-safe {
+  background-image: url("../img/safe.png");
+  
+}
+
+.icon-dashboard {
+   background-image: url("../img/dashboard.png");
+}
+
+.icon-hsis {
+   background-image: url("../img/icon-3.png");
+}
+
+.icon-report, .icon-dashboard, .icon-ims, .icon-safe, .icon-hsis {
+    width: 50px;
+    height:50px;
+}
+
+.user-photo .fa-close {
+    color: red;
+    font-size: 18px;
+    position: absolute;
+    right: 345px;
+    text-decoration: none;
+    top: 62px;
+}
+
+.user-photo .btn-file {
+    display: none;
+}
+
+.middle-area-top {
+    top: -54px;
+}
+
+.no-margin {
+    margin-left: 0!important;
+    margin-right: 0 !important;
+}
+
+.logo-img {
+   width:220px;
+   max-height:70px;
+   margin-top:9px;
+}
+
+.logo-img img {
+    margin-left:auto; 	
+    margin-right: auto; 
+    display:block;
+    max-height:70px;
+}
+
+.dropdown-menu {
+    min-width: 132px !important;
+}
+
+.log.operations {
+    background-color: black;
+}
+
+#userPhotoCrop {
+    max-width: 100% !important;
+}
+.crop-btn {
+    display: none;
+}
+.scrollable {
+    overflow-x: auto;
+     max-height: 400px;
+}
+
+.modal-body  img {
+  max-width: 100%;
+}
+
+
+.search-log-div {
+         width: 350px !important;
+         margin-top: 8px;
+}
+
+#log_search {
+    height: 34px;
+}
+
+.blank-required-field {
+    box-shadow: 0 0 3px rgba(255, 0, 0, .9);
+}
+
+.module-item a .users,.user_group,.logs,.dictionary,.translate {
+    // float: left;
+    margin-right: 8px;
+    width: 30px;
+    height:30px;
+    margin-top:3px; 
+    display:inline-block;
+}
+.module-item .users {
+    background-image: url("../img/users.png");
+}
+
+.module-item .user_group {
+    background-image: url("../img/shield.png");
+}
+
+.module-item .logs {
+    background-image: url("../img/logs.png");
+}
+
+.module-item .dictionary {
+    background-image: url("../img/dictionary.png");
+}
+
+.module-item .translate {
+    background-image: url("../img/translate.png");
+}
+.file-div{
+    position: relative;
+}
+.user-photo .fa-close {
+    color: red;
+    font-size: 18px;
+    position: absolute;
+    right: -20px;
+    text-decoration: none;
+    top: -155px;
+}
+.operation-edit .user-photo .btn-file{
+    display: block;
+    
+}

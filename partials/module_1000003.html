@@ -1,0 +1,202 @@
+<div style="display: none; padding-right: 17px;" class="modal fade main-modal" role="dialog" aria-labelledby="gridSystemModalLabel" id="editDictionaryModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header header-primary">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 data-i18n="dictionary.name" class="modal-title" id="gridSystemModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-white">
+                    <div class="panel-heading parent-show">
+                        <span data-i18n="parents" href="#"><h3 class="panel-title">Parents</h3></span>
+                    </div>
+                    <div class="panel-body parent-div">
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label data-i18n="dictionary.type.name" class="control-label" for="typeName">Dictionary Type</label>
+                                <select class="form-control dic-type-select">
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label data-i18n="dictionary.name" class="control-label" for="parentName">Dictionaries</label>
+                                <select class="form-control parent-select">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-white">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label data-i18n="dictionary.type.code" class="control-label" for="code">Code</label>
+                            <span class="span-code"></span>
+                            <input class="form-control" id="code"  type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n = "dictionary.value" class="control-label" for="az">Az</label>
+                            <input class="form-control input-dictionary-name" name="az" type="text" required>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button data-i18n="buttons.ok" type="button" class="btn btn-primary btn-dictionary">Save changes</button>
+                <button data-i18n="buttons.close" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div class="col-xs-12 content-filters top-panel">
+    <div class="col-xs-6 select-bar">
+        <div class="form-group">
+           
+        </div>
+    </div>
+    
+    <div class="col-xs-6 button-bar">
+        <div id="buttons_div" class="btn-group dropdown-func">
+            <div class="btn btn-default reg dropdown-toggle cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </div>
+            <ul class="dropdown-menu plus special">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row row-table no-margin">
+    <div class="col-md-4 middle-area-top p-l-0 p-r-0">
+        <div class="panel panel-white" style="min-height: 300px">
+            <div class="panel-heading">
+                <h3 data-i18n="dictionary.type.name" class="panel-title">Dictionary type</h3>
+            </div>
+            <div class="panel-body">
+                <table id="dic-type-table" class="table table-celled table-hover">
+                    <thead>
+                        <tr>
+                            <th data-i18n="dictionary.type.code">Code</th>
+                            <th data-i18n="dictionary.type.name">Name AZ</th>
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="space-for-footer">
+                    <div class="col-sm-12 flex-input">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 middle-area-top p-r-0">
+        <div class="panel panel-white">
+            <div class="panel-heading">
+                <h3 data-i18n="dictionary.name" class="panel-title">Dictionary</h3>
+            </div>
+            <div class="panel-body">
+                <table id="users-table" class="table table-celled table-hover long-last-td">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th class="hidden" data-i18n="dictionary.table.id">Parent ID</th>
+                            <th data-i18n="dictionary.name">Name AZ</th>
+                            <th data-i18n="update_date">Name AZ</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="space-for-footer">
+                    <div class="col-sm-12 flex-input">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function (e) {
+        $('#main-div .sub_modules_div').remove();
+        Sec.Proxy.loadDictionariTypes(function () {
+            
+            Sec.dicTypeId = $('#dic-type-table').find('tr').eq(1).attr('data-id');
+            Sec.Proxy.loadOperations(Sec.currModule, function (operations) {
+                $('#buttons_div').find('ul').html(Sec.Service.parseOperations(operations, 1));
+
+                Sec.Proxy.loadDictionariesByTypeId(Sec.dicTypeId,0, function (result) {
+                    Sec.Service.parseDictype(result);
+                });
+
+            });
+        });
+
+        $('#dic-type-table').on('click', 'tr', function () {
+
+            Sec.dicTypeId = $(this).attr('data-id');
+            
+            Sec.Proxy.loadOperations(Sec.currModule, function (operations) {
+                $('#buttons_div').find('ul').html(Sec.Service.parseOperations(operations, 1));
+
+                Sec.Proxy.loadDictionariesByTypeId(Sec.dicTypeId,0, function (result) {
+                    Sec.Service.parseDictype(result);
+                });
+
+            });
+        });
+        
+        $('.content-body').find('[data-i18n]').each(function() {
+           var attr = $(this).attr('data-i18n');
+            $(this).text(Sec.dictionary[Sec.lang][attr]);
+            $(this).attr('placeholder',Sec.dictionary[Sec.lang][attr]);
+        });
+        
+        $('#code').on('focusout', function () {
+            var code = $(this).val();
+            Sec.Proxy.checkDictionaryCode(code, function (data) {
+                if(data.data == "") {
+                    $('.span-code').removeClass('fa fa-close span-code-warning').addClass('fa fa-check span-code-success')
+                    $('#code').removeClass('error-border').addClass('success-border')
+                }
+                else {
+                    $('.span-code').removeClass('fa fa-check span-code-success').addClass('fa fa-close span-code-warning')
+                    $('#code').removeClass('success-border').addClass('error-border')
+                }
+            });
+            
+        });
+
+        // Draggable modal initiation
+        $('.modal-content').draggable();
+        
+        $('#main-div').on('click', '.parent-show', function() {
+            // var $obj = $(this);
+            
+            // var type = $(this).attr('data-type');
+            // if(type === 'hide') {
+            //     $obj.attr('data-type', 'show');
+            //     $('#main-div .parent-div').hide(1000)
+            // } else if(type === 'show') {
+            //     $obj.attr('data-type', 'hide');
+            //     $('#main-div .parent-div').show(1000)
+            // }
+            $('#main-div .parent-div').stop().slideToggle();
+            
+        })
+    });
+</script>
+
+
+

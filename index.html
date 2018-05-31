@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Mirrored from yima-v1.0.1.s3-website-us-east-1.amazonaws.com/html/DatatablesCrud.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 27 Sep 2016 17:12:21 GMT -->
+    <head>
+        <!--
+        [1. Meta Tags]
+        -->
+        <meta charset="utf-8" />
+        <title data-i18n="app.name"></title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="shortcut icon" type="image/png" href="assets/img/unibook-favicon.ico"/>
+
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" id="link-bootstrap" />
+        <link rel="stylesheet" href="assets/css/animate.min.css" type="text/css" />
+        <link rel="stylesheet" href="assets/css/app.min.css" type="text/css" id="link-app" />
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css" type="text/css" />
+        <link rel="stylesheet" href="assets/plugins/jquery-file-input/file-input.css">
+        <link rel="stylesheet" href="assets/css/file-input.css">
+        <link rel="stylesheet" href="assets/css/cropper.min.css">
+        <link rel="stylesheet" href="assets/css/progress.css">
+        <link rel="stylesheet" href="assets/css/page-loading.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/default/style.css">
+        <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="assets/css/security.css">
+        <link rel="stylesheet" href="assets/css/jquery-confirm.css">
+        <link rel="stylesheet" href="assets/css/notify.css">
+        
+        
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/modernizr.custom.js"></script>
+        <script src="assets/js/lib/animsition/animsition.min.js"></script>
+        <script src="assets/js/lib/validation/jquery.validate.min.js"></script>
+        <script src="assets/js/lib/validation/jquery.validate.defaults.js"></script>
+        <script src="assets/js/bootstrap-datepicker.js"></script>
+        <script src="assets/js/pages/modalDialog.js"></script>
+        <script src="assets/js/file-input.js"></script>
+        <script src="assets/js/progress.js"></script>
+        <script src="assets/js/cropper.min.js"></script>
+        <script src="assets/js/pages/moduleTwoActions.js"></script>
+        <script src="assets/js/jstree.js"></script>
+        <script src="assets/js/jquery-ui.js"></script>
+        <script src="assets/js/jquery-confirm.js"></script>
+        <script src="assets/js/crop.js"></script>
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
+
+        <script src="assets/js/notify.min.js"></script>
+        <script src="assets/js/notification_options.js"></script>
+        <script src="assets/js/security.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/events.js"></script>
+        <script src="assets/js/pages/additionalFunctions.js"></script>
+        <script src="assets/js/notify.js"></script>
+    </head>
+    <body>
+        <div class="progress-backdrop hidden"></div>
+        <div id="main-div" class="hidden ">
+            
+            <div class="modal settings-password-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 data-i18n="change_password"  class="modal-title">Change password</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label data-i18n="last_password">Last password</label>
+                                <input data-i18n="last_password" type="password" class="form-control last-password required" placeholder="Last password" />
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="new_password">New password</label>
+                                <input data-i18n="new_password" type="password" class="form-control new-password required" placeholder="New password" />
+                            </div>
+                            <div class="form-group">
+                                <label data-i18n="repeat_password">Confirmed password</label>
+                                <input data-i18n="repeat_password" type="password" class="form-control confirmed-password required" placeholder="Confirm password" />
+                            </div>
+                        </div>
+                        <div class="modal-footer flex-img">
+                            <button data-i18n="buttons.ok"  class="btn btn-primary change-password-submit">OK</button>
+                            <button data-i18n="close" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar menu">
+                <div class="sidebar-header">
+
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="active open">
+                            <div class="brand-slogan">
+                                
+                            </div>
+                            <div class="logo">
+                                <div class="logo-img">
+                                    <img class= "org-logo" src="assets/img/tehsil-logo-2.png" alt="logo" width="70" height="70">
+                                </div>
+                                
+                                <h3 class="logo-name"></h3>
+                            </div>
+                            <ul class="module" id="sideScroll">
+                                <div class="mod-con"></div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar form collapsed">
+
+            </div>
+            <div class="main-content">
+                <div class="content-main-header">
+                    <div class="content-upper-header">
+                        <div class="header-brand">
+                            <img src="assets/img/unibook-logo.svg"  alt="logo">
+                        </div>
+                        <div data-i18n="app.name"  class="slogan-title">SAFE Security App</div>
+
+                        <div class="app-list">
+                            <ul class="app-con">
+
+                            </ul>
+                        </div>
+
+<!--                         <div class="language-buttons">
+                            <ul>
+                                <li title = "Azərbaycan dili"><a id="az" href="#"><img src="assets/img/az-icon.png" alt="" width="30" height="30"></a></li>
+                                <li title = "İngilis dili"><a id="en" href="#"><img src="assets/img/en-icon.png" alt="" width="30" height="30"></a></li>
+                                <li title = "Rus dili"><a id="ru" href="#"><img src="assets/img/ru-icon.png" alt="" width="30" height="30"></a></li>
+                            </ul>
+                        </div>
+                        <div class="application-buttons" title="Sistemlər">
+                            <a href="#" class="pe-7s-keypad">
+                            </a>
+                            <div class="application-list hidden">
+                                <ul id="application-list">
+                                    <div class="row p-20 div-application">
+                                        
+                                    </div>
+                                </ul>
+                            </div>
+                        </div> -->
+                        
+                            <img src="assets/img/index.png" alt="" class="main-img" />
+
+                        <div class="user-info animated">
+                            <div class="big-img no-border-radius">
+                                <img src="assets/img/index.png" alt="" class="no-border-radius" />
+                            </div>
+                            <div class="data profile-data">
+                                <ul>
+                                    <li data-type="name"></li>
+                                    <li data-type="role"></li>
+                                    <li data-type="org"></li>                        
+                                </ul>
+                            </div>
+                            <div class="row userinfo-logout-block">
+                                <div class="col-md-6">
+                                    <form id="logoutForm" method="POST">
+                                        <input type="hidden" name="token">
+                                        <button data-i18n="users.logout" class="btn btn-default btn-block" type="submit">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <button data-i18n="settings" class="btn btn-default settings-button">Settings</button>
+                                </div>
+                            </div>
+                            <div class="cancel">✖</div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="content-body p-r-10">
+
+                </div>
+            </div>
+            <div class="footer">
+                <div class="col-xs-12">
+                    <p data-i18n="powered">Geterated by Unibook Platform</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="cssload-global">
+            <div id="cssload-top" class="cssload-mask">
+                <div class="cssload-plane"></div>
+            </div>
+            <div id="cssload-middle" class="cssload-mask">
+                <div class="cssload-plane"></div>
+            </div>
+
+            <div id="cssload-bottom" class="cssload-mask">
+                <div class="cssload-plane"></div>
+            </div>
+        </div>
+
+        <img src="assets/img/default.svg" alt="" class="small-loading hidden">
+        <script src="assets/js/pageLoading.js"></script>
+        <script>
+            $(function() {
+            Sec.i18n(Sec.lang);
+   $('#sideScroll .mod-con').slimScroll();
+        });
+            var flag = false;
+            var timer;
+            var contentBody = $('.content-body');
+            var smallLoading = $('.small-loading');
+
+            $(document).ajaxStart(function(e) {
+                
+                NProgress.start();
+                
+                
+//                if (flag) {
+//
+//                    if ($('.sidebar.menu').hasClass('collapsed'))
+//                        smallLoading.css('left', '960px');
+//
+//                    timer = setTimeout(function () {
+//                        contentBody.addClass('hidden');
+//                        smallLoading.removeClass('hidden');
+//                    }, 50);
+//
+//                }
+            }).ajaxStop(function() {
+                NProgress.done();
+                $('.progress-backdrop').addClass('hidden');
+//                if (flag) {
+//
+//                    clearTimeout(timer);
+//
+//                    if(!smallLoading.hasClass('hidden')) {
+//                        contentBody.removeClass('hidden');
+//                        smallLoading.addClass('hidden');
+//                    }
+//
+//                }
+//
+//                flag = true;
+            });
+
+        </script>
+    </body>
+</html>

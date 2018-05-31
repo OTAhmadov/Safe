@@ -1,0 +1,157 @@
+<div class="col-xs-12 content-filters top-panel">
+    <div class="col-xs-6 select-bar">
+        <div class="form-group">
+           
+        </div>
+    </div>
+
+    <div class="col-xs-6 button-bar">
+        <div id="buttons_div" class="btn-group dropdown-func">
+            <div class="btn btn-default reg dropdown-toggle cog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </div>
+            <ul class="dropdown-menu plus special">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row row-table no-margin ">
+    <div class="col-md-4 middle-area-top p-l-0 p-r-0">
+        <div class="panel panel-white">
+            <div class="panel-heading">
+                <h3 data-i18n="users.user.groups" class="panel-title">User Groups</h3>
+            </div>
+            <div class="panel-body">
+                <table id="user-group-table" class="table table-celled table-hover">
+                    <thead>
+                        <tr>
+                            <th data-i18n="users.user.groups" >
+                                User groups
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="space-for-footer">
+                    <div class="col-sm-12 flex-input">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="col-md-8 middle-area-top p-r-0">
+            <div class="panel panel-white">
+                <div class="panel-heading">
+                    <h3 data-i18n="opreation.view.table.title" class="panel-title">Operation view</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="operation-view-table" class="table table-celled">
+                        <thead>
+                            <tr>
+                                <th data-i18n="opreation.view.table.applications">Applications</th>
+                                <th data-i18n="opreation.view.table.operations" >Operations</th>
+                                <th data-i18n="opreation.view.table.enabled">Enabled</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <div class="space-for-footer">
+                        <div class="col-sm-12 flex-input">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(function (e) {
+        
+        $('#main-div .sub_modules_div').remove();
+        
+        
+        Sec.Proxy.loadOperations(Sec.currModule, function (operations) {
+            $('#buttons_div').find('ul').html(Sec.Service.parseOperations(operations, 1));
+            
+            Sec.Proxy.loadRoles(function (roles) {
+                if (roles) {
+                    if (roles.code === Sec.statusCodes.OK) {
+                        Sec.Service.parseRolesToTable(roles.data);
+                        var roleId = $('.content-body').find('#user-group-table').find('tr').eq(1).attr('data-id');
+                        Sec.Proxy.getOperations(function (result) {
+
+                            Sec.Proxy.getOperationsByRoleId(roleId, function (data) {
+                                var html = '';
+                                $.each(result.data, function (i, v) {
+
+                                    var count = false;
+
+                                    $.each(data.data, function (x, y) {
+
+                                        if (v.id == y.id) {
+                                            html += '<tr data-id="' + v.id + '">' +
+                                                    '<td>' + v.application.name[Sec.lang] + ' / ' + v.module.name[Sec.lang] + '</td>' +
+                                                    '<td>' + v.name[Sec.lang] + '</td>' +
+                                                    '<td>' +
+                                                    '<label>' +
+                                                    '<span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;font-size: 15px;"></span>' +
+                                                    '<span class="text"></span>' +
+                                                    '</label>' +
+                                                    '</td>' +
+                                                    '</tr>';
+                                            count = true;
+                                        }
+
+                                    });
+
+                                    if (!count) {
+                                        html += '<tr data-id="' + v.id + '">' +
+                                                '<td>' + v.application.name[Sec.lang] + ' / ' + v.module.name[Sec.lang] + '</td>' +
+                                                '<td>' + v.name[Sec.lang] + '</td>' +
+                                                '<td>' +
+                                                '<label>' +
+                                                '<span aria-hidden="true" style="color: red;font-size: 15px;" class="glyphicon glyphicon-remove off"></span>' +
+                                                '<span class="text"></span>' +
+                                                '</label>' +
+                                                '</td>' +
+                                                '</tr>';
+                                    }
+
+                                });
+                                $('#operation-view-table tbody').html(html);
+
+                            });
+                        });
+                        
+                    }
+                }
+                else {
+                    $.notify("Xəta baş verdi!", {
+                                        type: 'danger'
+                                });
+                }
+            });
+        });
+        
+        $('.content-body').find('[data-i18n]').each(function() {
+           var attr = $(this).attr('data-i18n');
+            $(this).text(Sec.dictionary[Sec.lang][attr]);
+            $(this).attr('placeholder',Sec.dictionary[Sec.lang][attr]);
+        });
+    });
+
+
+
+
+
+</script>
+
+
+

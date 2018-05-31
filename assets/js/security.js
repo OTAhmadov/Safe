@@ -8,8 +8,7 @@
 var cropForm = new FormData();
 var Sec = {
      // token: '0',
-     token: 'd7c06180bd564fb7b703d8678d26b3be4e968933694f48a4b97ef9d203a25040',
-   // token: '6fedc00a3d364332af03c38d03c9a35200f4c932d21e497daec7ac7e181cfbda',
+     // token: 'b2b35e6683f9415e927efe01c998b55c5243f0e59853443e9cdceb2f147c8237',
     lang: '',
     appId: 1000000,
     currModule: '',
@@ -159,7 +158,15 @@ var Sec = {
                     
                     $('.app-con').html(html);
                     $('.app-con a[data-id="' + Sec.appId + '"]').parent('li').addClass('active');
-                    $('[data-toggle="tooltip"]').tooltip()
+                    $('[data-toggle="tooltip"]').tooltip();
+
+                    var moduleListItems = $('body').find('.app-con li');
+                    console.log(moduleListItems);
+                    if (moduleListItems.length > 5) {
+                        $('body').find('div.app-list, .hide-menu').addClass('less-menu')
+                    } else {
+                        $('body').find('div.app-list, .hide-menu').removeClass('less-menu')
+                    }
                 })
                 
             }
@@ -1511,9 +1518,9 @@ var Sec = {
                                     if (data.data) {
                                         var user = data.data;
                                         console.log(user.role.id)
-                                        $('.profile-data li[data-type="name"]').text(user.person.name + ' ' + user.person.surname + ' ' + user.person.patronymic);
-                                        $('.profile-data li[data-type="role"]').text(user.role.value[Sec.lang]);
-                                        $('.profile-data li[data-type="org"]').text(user.structure.name[Sec.lang]);
+                                        $('.user-notify-content h6[data-type="name"]').text(user.person.name + ' ' + user.person.surname + ' ' + user.person.patronymic);
+                                        $('.user-notify-content p[data-type="role"]').text(user.role.value[Sec.lang]);
+                                        $('.user-notify-content p[data-type="org"]').text(user.structure.name[Sec.lang]);
                                         $('.profile-data').attr('data-role',user.role.id);
                                         $('.logo-name').text(user.orgName.value[Sec.lang]);
                                         Sec.structureId = user.structure.id;

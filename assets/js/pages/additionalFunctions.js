@@ -8,26 +8,26 @@ $('document').ready(function() {
     var sidebarMenu = $('.sidebar.menu');
     var contentMainHeader = $('.content-main-header');
 
-    userInfo.addClass('hidden');
+    // userInfo.addClass('hidden');
 
-    $('.main-img').click(function(e) {
-
-        userInfo.removeClass('hidden');
-
-        cancelButton.click(function(e) {
-           userInfo.addClass('hidden');
-        });
-
-    });
+    // $('.main-img').click(function(e) {
+    //
+    //     userInfo.removeClass('hidden');
+    //
+    //     cancelButton.click(function(e) {
+    //        userInfo.addClass('hidden');
+    //     });
+    //
+    // });
 
     $('body').click(function(event) {
 
-       if(!event.target.closest('.user-info') && event.target != $('.main-img').get(0)) {
-           userInfo.addClass('hidden');
-       }
+       // if(!event.target.closest('.user-info') && event.target != $('.main-img').get(0)) {
+       //     userInfo.addClass('hidden');
+       // }
 
         if(!event.target.closest('.application-list') && !( $('.application-list').hasClass('hidden')) && !event.target.closest('.application-buttons')) {
-            $('.application-list').addClass('hidden');
+            // $('.application-list').addClass('hidden');
         }
 
 

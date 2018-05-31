@@ -1596,7 +1596,7 @@ hr {
 }
 .sidebar.menu .sidebar-menu .menu>li>ul li a span {
     font-size: 1.4em;
-    font: 14px/50px 'HelveticaNeue', sans-serif;
+    font: 14px/14px 'HelveticaNeue', sans-serif;
     font-weight: 300;
     vertical-align: middle
 
@@ -19662,7 +19662,7 @@ a.fc-more:hover {
     float: right;
     position: absolute;
     top: 2px;
-    right: 19px;
+    right: 3px;
     cursor: pointer;
 }
 .content-upper-header .big-img img {
@@ -19946,7 +19946,7 @@ table.dataTable thead .sorting_disabled.sorting::after, table.dataTable thead .s
 }
 
 .content-body {
-   padding-top: 140px !important;
+   padding-top: 130px !important;
 }
 
 tfoot {
@@ -20683,10 +20683,10 @@ td .blocked {
     background-color: #828282;
 }
 .content-filters .btn-default, .content-filters .open>.dropdown-toggle.btn-default{
-    background: #ccc;
+    background: #828282;
 }
 table>thead>tr>th {
-    background-color: #ccc !important;
+    background-color: #828282 !important;
 }
 .header-brand img {
     position: relative;
@@ -20711,7 +20711,7 @@ table>thead>tr>th {
     float: right;
     /* display: inline-block; */
     position: relative;
-    right: 60px;
+    right: 30px;
     top: -20px;
     height: 100%;
 }
@@ -20723,4 +20723,7 @@ table>thead>tr>th {
 }
 .panel-body.p-r-0.p-l-0{
     padding: 0 0 15px;
+}
+.p-r-0{
+    padding-left: 10px !important;
 }

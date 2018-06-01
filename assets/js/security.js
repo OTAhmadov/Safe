@@ -8,7 +8,7 @@
 var cropForm = new FormData();
 var Sec = {
      // token: '0',
-     // token: 'b2b35e6683f9415e927efe01c998b55c5243f0e59853443e9cdceb2f147c8237',
+    token: 'f3b15c5d3b4d4582a8cf1c0040540c6abdee552584ce429fb83a123f19328e13',
     lang: '',
     appId: 1000000,
     currModule: '',

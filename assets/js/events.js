@@ -7,6 +7,8 @@
 
 $(function () {
 
+    $(".iframeUpdate").attr("src", "http://192.168.1.78:8082/UnibookShared/#/profile-edit?token=" + Sec.token);
+
     var chosenLang;
 
     if (document.cookie.indexOf('lang') == -1) {

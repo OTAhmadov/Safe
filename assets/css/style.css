@@ -1087,7 +1087,7 @@
 
 .header-brand img {
     position: relative;
-    top: 18px;
+    top: 16px;
     width: auto;
     height: 21px;
     left: 13px;
@@ -1134,8 +1134,8 @@
   display: none;
   float: right;
   width: 34px;
-  /*margin-top: 20px;*/
-  margin-right: 55px;
+  margin-top: -9px !important;
+  margin-right: 34px;
 }
 .hide-menu i{
   color: #fff;
@@ -1154,6 +1154,7 @@
     line-height: 0;
     float: none;
     padding: 10px 15px;
+    margin-right: 0;
     text-align: center;
     margin-top: 10px;
     width: 200px;
@@ -1161,11 +1162,11 @@
   div.app-list.less-menu ul.app-con{
     background: #828282;
     position: fixed;
-    right: 60px;
+    right: 45px;
     z-index: 999;
     display: flex;
     flex-direction: column;
-    top: 75px;
+    top: 57px;
     height: auto;
   }
   div.app-list.less-menu ul.app-con li:last-child{
@@ -1235,13 +1236,14 @@
 .ems-tab{
   width: 200px;
   text-decoration: none;
-  background-color: #acacac;
+  background-color: #828282;
   color: #fff !important;
   margin: 0 !important;
 }
 .ems-tab a{
   padding: 15px 30px !important;
   font-size: 15px;
+  height: 50px;
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;

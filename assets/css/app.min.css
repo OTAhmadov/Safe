@@ -15606,6 +15606,7 @@ table > thead > tr > th {
     position: relative;
     vertical-align: middle;
     border: 0;
+    font-size: 14px;
     border-right: 1px solid #fff;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -19655,13 +19656,13 @@ a.fc-more:hover {
 
 .content-upper-header .main-img {
     width: 30px;
-     height: 30px;
+    height: 30px;
     overflow: hidden;
     display: block;
     border-radius: 50%;
     float: right;
     position: absolute;
-    top: 2px;
+    top: 1px;
     right: 3px;
     cursor: pointer;
 }
@@ -19683,7 +19684,7 @@ a.fc-more:hover {
     height: 100vh;
     position: absolute;
     right: -500px;
-    top: 55px;
+    top: 50px;
     z-index: 999!important;
     transition: ease-in-out 500ms;
     visibility: hidden;
@@ -19942,11 +19943,11 @@ table.dataTable thead .sorting_disabled.sorting::after, table.dataTable thead .s
     padding-left: 0;
     /*padding-left: 230px;*/
     /*height: 115px;*/
-    height: 55px;
+    height: 50px;
 }
 
 .content-body {
-   padding-top: 130px !important;
+   padding-top: 115px !important;
 }
 
 tfoot {
@@ -20650,9 +20651,11 @@ td .blocked {
 }
 .app-con li{
     float: left;
-    padding: 0 10px;
-    width: 109px;
-    line-height: 55px;
+    margin-right: 20px;
+    height: 50px;
+    /*padding: 0 10px;*/
+    /*width: 109px;*/
+    line-height: 50px;
 }
 .app-con li a{
     font-size: 13px;
@@ -20672,14 +20675,14 @@ td .blocked {
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -17px;
+    bottom: -16px;
     z-index: 2;
     height: 3px;
     background: #fff;
 }
 
 .main-content .content-upper-header {
-    height: 55px;
+    height: 50px;
     background-color: #828282;
 }
 .content-filters .btn-default, .content-filters .open>.dropdown-toggle.btn-default{

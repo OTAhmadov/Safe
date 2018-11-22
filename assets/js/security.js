@@ -7,8 +7,7 @@
 
 var cropForm = new FormData();
 var Sec = {
-     // token: '0',
-    // token: '97660b9379144e3b8553d7fb748fed45b7e87af2cf2548d6be635b6e5d44a1f4',
+    token: '636f89431ecf44589a986bc7285d0f751c2e8af46d8c49ccaf802e18b4a791ce',
     lang: '',
     appId: 1000000,
     currModule: '',
@@ -32,12 +31,12 @@ var Sec = {
 //    },
     urls: {
         //AdminRest: 'http://localhost:8080/AdministrationRest/',
-        AdminRest: 'http://192.168.1.78:8082/AdministrationRest/',
-        HSIS: 'http://192.168.1.78:8082/UnibookHsisRest/',
+        AdminRest: 'http://192.168.1.8:8082/AdministrationRest/',
+        HSIS: 'http://192.168.1.8:8082/UnibookHsisRest/',
         //HSIS: 'http://localhost:8080/UnibookHsisRest/',
-        ROS: 'http://192.168.1.78:8082/ROS/',
+        ROS: 'http://192.168.1.8:8082/ROS/',
 //        REPORT: 'http://localhost:8080/ReportingRest/',
-        REPORT: 'http://192.168.1.78:8082/ReportingRest/',
+        REPORT: 'http://192.168.1.8:8082/ReportingRest/',
         //REPORT: 'http://localhost:8080/ReportingRest/',
         //ROS: 'http://localhost:8080/ROS/'
     },
@@ -238,9 +237,8 @@ var Sec = {
             return html;
         },
         parseUsers: function (data, append) {
+
             var html = '';
-
-
             if (data.data && data.data.userList) {
                 var count;
 
@@ -475,8 +473,6 @@ var Sec = {
                 }
             });
         },
-        
-        
         loadSubApplications: function (callback) {
             $.ajax({
                 url: Sec.urls.ROS + 'applications/1000014/subApplications?token=' + Sec.token,
@@ -508,7 +504,6 @@ var Sec = {
                 }
             });
         },
-        
         loadModules: function (appId, callback) {
             var modules = {};
             $.ajax({
@@ -610,6 +605,7 @@ var Sec = {
                 }
             });
         },
+
         loadUsers: function (page, params, callback) {
             $.ajax({
                 url: Sec.urls.AdminRest + 'users?token=' + Sec.token + (page ? '&page=' + page : ''),
@@ -645,6 +641,7 @@ var Sec = {
 
             });
         },
+
         blockUser: function (userId, block, callback) {
             var code = {};
 
@@ -925,6 +922,8 @@ var Sec = {
                 }
             });
         },
+
+
         loadRolesById: function (roleId, callback) {
             var result = {};
             $.ajax({
@@ -984,6 +983,10 @@ var Sec = {
                 }
             })
         },
+
+
+
+
         loadLogs: function (page, params, callback) {
             var date = Sec.dateFilterLog.trim().length > 0 ? Sec.dateFilterLog : '';
             $.ajax({
